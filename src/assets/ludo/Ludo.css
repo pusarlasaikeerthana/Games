@@ -1,0 +1,267 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff; /* Light Alice Blue for the initial background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.5s ease;
+  font-family: 'Arial', sans-serif;
+ }
+ 
+ 
+ .ludo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #e0f7fa;  */
+  padding: 40px;
+  border-radius: 30px;
+  color: #263238; /* Dark gray text */
+  font-size: 20px;
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); */
+  width: 90%; /* Adjust width for better responsiveness */
+  max-width: 600px; /* Set a maximum width */
+ }
+ 
+ 
+ h2{
+  color: #A06234;
+ }
+ 
+ 
+ .current-player {
+  margin-bottom: 20px;
+  color: #007bff; /* Blue for current player info */
+ }
+ 
+ 
+ .players-container {
+  display: flex;  margin: 20px;
+  flex-direction: row;
+ }
+ 
+ 
+ .player-card {
+  margin-right: 30px; /* Added margin between player cards */
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 4px #808080;
+  justify-content: space-between;
+ }
+ 
+ 
+ .player-card.disabled .die-icon{
+  opacity: 0.5;
+  pointer-events: none;
+ }
+ 
+ 
+ .player1 {
+  border: 2px solid #5D3A1E; /* Green border for Player 1 */
+ }
+ 
+ 
+ .player2 {
+  border: 2px solid #5D3A1E; /* Red border for Player 2 */
+ }
+ 
+ 
+ .player-total-container {
+  text-align: center;
+  margin-bottom: 15px;
+ }
+ 
+ 
+ .player-total {
+  font-size: 1.3em;
+  color: #333;
+ }
+ 
+ 
+ .new-number {
+  font-size: 1.1em;
+  color: #777;
+ }
+ 
+ 
+ .ludo_title {
+  font-size: 4em;
+  /* color: #5D3A1E; */
+  font-size: 70px;
+  margin-top: 80px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+ 
+ 
+ button {
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin-top: 20px;
+  background-color: #007bff; /* Blue button background */
+  color: white;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ 
+ button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px);
+ }
+ 
+ 
+ button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+ }
+ 
+ 
+ .active {
+  background-color: #28a745; /* Green for active player's button */
+ }
+ 
+ 
+ .winner-message {
+  position: relative;
+  padding: 25px;
+  font-size: 2.5em;
+  color: gold;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: pulse 1.5s infinite alternate;
+  margin-bottom: 20px;
+ }
+ 
+ 
+ @keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+ }
+ 
+ 
+ .reset-button-container {
+  margin-top: 30px;
+ }
+ 
+ 
+ .reset-button {
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  background-color: #ffc107; /* Yellow for reset button */
+  color: #212529; /* Dark text for reset button */
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ 
+ .reset-button:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+  transform: translateY(-2px);
+ }
+ 
+ 
+ .winner-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: repeating-radial-gradient(circle, #E6B877, #D49A5B,#B97843);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ .winner-dialog h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+ }
+ 
+ 
+ .winner-dialog button {
+  /* background-color: #28a745;
+  background-color: transparent; */
+  background-color: #814F29;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+ }
+ 
+ 
+ #gameBoard.blur {
+  filter: blur(5px);
+ }
+ 
+ 
+ .die-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 4em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+ }
+ 
+ 
+ .die-icon:active {
+  transform: scale(0.95);
+ }
+ 
+ 
+ .dice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+ 
+ 
+ .dice-container.animate-dice-roll .die-icon {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+ }
+ 
+ 
+ @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+ }
+ 
